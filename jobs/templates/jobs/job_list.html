@@ -1,0 +1,37 @@
+{% extends "jobs/base.html" %}
+
+{% block title %}Jobs{% endblock %}
+
+{% block content %}
+  <h1>Jobs</h1>
+  <p><a class="button add" href="{% url 'add-job' %}">Add job</a></p>
+
+  <table>
+    <tr>
+      <th>Company</th>
+      <th>Role</th>
+      <th>Applied date</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+    {% for job in jobs %}
+      <tr>
+        <td>{{ job.company }}</td>
+        <td>{{ job.role }}</td>
+        <td>{{ job.applied_date|date:"N j, Y" }}</td>
+        <td>{{ job.get_status_display }}</td>
+        <td class="actions">
+          <a href="{% url 'edit-job' job.id %}">Edit</a>
+          <form method="post" action="{% url 'delete-job' job.id %}">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="5">No jobs yet.</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

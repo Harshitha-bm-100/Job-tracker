@@ -1,0 +1,12 @@
+{% extends "jobs/base.html" %}
+
+{% block title %}Edit job{% endblock %}
+
+{% block content %}
+  <h1>Edit {{ job.role }} at {{ job.company }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
