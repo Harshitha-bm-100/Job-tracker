@@ -6,7 +6,7 @@ Save job applications in a SQLite database and manage them in the browser.
 
 Job Tracker is a small Django web app for job applications. The home page lists every saved job, newest applied date first. Each row shows the company, role, applied date, and status. Add job opens a form for a new application. Edit opens that same form filled in for one job. Delete removes that row. A missing id shows a 404 page.
 
-Company, role, and applied date are required. Status defaults to Applied. The other choices are Not Applied, Pending, Shortlisted, Interview Scheduled, Offer Received, Accepted, and Rejected.
+Company, role, and applied date are required. Status defaults to Applied. The other choices are Pending, Shortlisted, Interview Scheduled, Accepted, and Rejected.
 
 ## Getting Started
 
